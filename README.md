@@ -154,7 +154,11 @@ include 'sts.php'
 $scopes = array();
 array_push($scopes,new Scope("name/cos:PutObject", "test-12500000", "ap-guangzhou", "/1.txt"));
 array_push($scopes, new Scope("name/cos:GetObject", "test-12500000", "ap-guangzhou", "/dir/*"));
-$policy = getPolicy($scopes);
+
+//创建 sts
+$sts = new STS();
+//获取policy
+$policy= $sts->getPolicy($scopes);
 echo str_replace('\\/', '/', json_encode($policy));
 ```
 ### 返回结果
