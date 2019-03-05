@@ -11,6 +11,9 @@ class STS{
 	function json2str($obj, $notEncode = false) {
 		ksort($obj);
 		$arr = array();
+		if(!is_array($obj)){
+			throw new Exception($obj + " must be a array");
+		}
 		foreach ($obj as $key => $val) {
 			array_push($arr, $key . '=' . ($notEncode ? $val : rawurlencode($val)));
 		}
@@ -25,6 +28,9 @@ class STS{
 	}
 	// v2接口的key首字母小写，v3改成大写，此处做了向下兼容
 	function backwardCompat($result) {
+		if(!is_array($result)){
+			throw new Exception($result + " must be a array");
+		}
 		$compat = array();
 		foreach ($result as $key => $value) {
 			if(is_array($value)) {
@@ -79,7 +85,9 @@ class STS{
 		$params['Signature'] = $this->getSignature($params, $config['secretKey'], $Method, $config);
 		$url = $config['url'];
 		$ch = curl_init($url);
-		$config['proxy'] && curl_setopt($ch, CURLOPT_PROXY, $config['proxy']);
+		if(array_key_exists('proxy', $config)){
+			$config['proxy'] && curl_setopt($ch, CURLOPT_PROXY, $config['proxy']);
+		}
 		curl_setopt($ch, CURLOPT_HEADER, 0);
 		curl_setopt($ch,CURLOPT_SSL_VERIFYPEER,0);
 		curl_setopt($ch,CURLOPT_SSL_VERIFYHOST,0);
