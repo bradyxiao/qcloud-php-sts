@@ -46,7 +46,7 @@ include 'sts.php'
 $config = array(
     'Url' => 'https://sts.api.qcloud.com/v2/index.php',
     'Domain' => 'sts.api.qcloud.com',
-    'Proxy' => '', 
+    //'Proxy' => null,  //设置网络请求代理
     'SecretId' => 'AKIDxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx', // 固定密钥
     'SecretKey' => 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx', // 固定密钥
     'Bucket' => 'test-1250000000', // 换成你的 bucket
@@ -98,7 +98,7 @@ $policy = array(
 $config = array(
     'Url' => 'https://sts.api.qcloud.com/v2/index.php',
     'Domain' => 'sts.api.qcloud.com',
-    'Proxy' => '', 
+    //'Proxy' => null,  //设置网络请求代理
     'SecretId' => 'AKIDxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx', // 固定密钥
     'SecretKey' => 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx', // 固定密钥
     'policy' => $policy
