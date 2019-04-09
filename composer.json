@@ -1,5 +1,5 @@
 {
-    "name": "qcloud_sts/qcloud-sts-sdk",
+    "name": "tencent/qcloud-sts-sdk",
     "description": "PHP SDK for QCloud STS",
     "keywords": [
         "qcloud", "sts", "cos", "php"
@@ -14,10 +14,10 @@
     ],
     "autoload": {
       "psr-0": {
-        "sts": "sts/"
+        "php\\": "sts/"
      }
     },
     "require": {
-        "php": ">=5.3.0"
+        "qcloud": ">=5.3.0",
     }
 }
